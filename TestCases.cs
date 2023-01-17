@@ -50,6 +50,20 @@ namespace TestCaseMoodAnalyzer
                 Assert.AreEqual("Mood can not be Null.", Exception.Message);
             }
         }
-
+        
+          [TestMethod]
+        public void UseCase3_2()
+        {
+            try
+            {
+                var analyze = new MoodAnalyser("");
+                string Returned_Message = analyze.analyseMood1();
+                Assert.AreEqual("HAPPY", Returned_Message);
+            }
+            catch (MoodAnalyzerNullException Exception)
+            {
+                Assert.AreEqual("Mood can not be Empty.", Exception.Message);
+            }
+        }
     }
 }
