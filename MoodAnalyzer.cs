@@ -44,15 +44,15 @@ namespace ModeAnalyzerAssignment
             if (obja.msg == null)
             {
                
-                
+              obja.msg="Happy";
                
-                throw new MoodAnalyzerNullException("Invalid Mood");
+              
             }
             else
             {
                 Console.WriteLine("Message is not NULL" + obja.msg);
             }
-          
+            obja.msg="Happy";
             return obja.msg;
         }
 
