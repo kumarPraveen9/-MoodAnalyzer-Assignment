@@ -37,23 +37,27 @@ namespace ModeAnalyzerAssignment
 
         }
 
-        public string analyseMood1()
-        {
-            MoodAnalyser obja = new MoodAnalyser(msg);
 
-            if (obja.msg == null)
+
+       public string analyseMood1()
+        {
+           
+            MoodAnalyser moodAnalyser = new MoodAnalyser(msg);
+           msg = "";
+            try
             {
-               
-              obja.msg="Happy";
-               
-              
+                if (msg.Equals(string.Empty))
+                    throw new MoodAnalyzerNullException(MoodAnalyzerNullException.Exception_Type.EMPTY_MOOD, "Mood can not be Empty.");
+                else if (msg.ToUpper().Contains("SAD"))
+                    return "SAD";
+                else return "HAPPY";
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Message is not NULL" + obja.msg);
+                //return "HAPPY";
+                throw new MoodAnalyzerNullException(MoodAnalyzerNullException.Exception_Type.NULL_MOOD, "Mood can not be Null.");
             }
-            obja.msg="Happy";
-            return obja.msg;
+           
         }
 
     }
