@@ -30,25 +30,32 @@ namespace ModeAnalyzerAssignment
     {
 
         public string msg;
-        public MoodAnalyser()
-        {
-            this.msg = "SAD";
-        }
+       
         public MoodAnalyser(string msg1)
         {
-           this.msg = msg1;
-            
+            this.msg = msg1;
+
         }
-        
+
         public string analyseMood1()
         {
-            MoodAnalyser obja = new MoodAnalyser();
-            obja.msg="HAPPY";
+            MoodAnalyser obja = new MoodAnalyser(msg);
+
+            if (obja.msg == null)
+            {
+               
+                
+               
+                throw new MoodAnalyzerNullException("Invalid Mood");
+            }
+            else
+            {
+                Console.WriteLine("Message is not NULL" + obja.msg);
+            }
+          
             return obja.msg;
-            
         }
 
     }
 
 }
-
