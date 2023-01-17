@@ -43,11 +43,14 @@ namespace ModeAnalyzerAssignment
         {
            
             MoodAnalyser moodAnalyser = new MoodAnalyser(msg);
-           msg = "";
+           //msg = "";
             try
             {
                 if (msg.Equals(string.Empty))
+                {
+
                     throw new MoodAnalyzerNullException(MoodAnalyzerNullException.Exception_Type.EMPTY_MOOD, "Mood can not be Empty.");
+                }
                 else if (msg.ToUpper().Contains("SAD"))
                     return "SAD";
                 else return "HAPPY";
