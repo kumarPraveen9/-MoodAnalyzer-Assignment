@@ -187,7 +187,18 @@ namespace TestCaseMoodAnalyzer
             Assert.AreEqual("HAPPY", mood);
         }
 
-      
+       [TestMethod]
+        public void UseCase6_2()
+        {
+            try
+            {
+                string mood = Mood_Aanalyzer_Factory.invokeAnalyzeMood("Happy", "mood_analyser");
+            }
+            catch (MoodAnalyzerNullException Exception)
+            {
+                Assert.AreEqual("Method not found", Exception.Message);
+            }
+        }
 
     }
 }
