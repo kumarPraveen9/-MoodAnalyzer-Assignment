@@ -29,5 +29,19 @@ namespace TestCaseMoodAnalyzer
                 Assert.AreEqual("Class not found", Exception.Message);
             }
         }
+    
+     [TestMethod]
+        public void UseCase4_3()
+        {
+            try
+            {
+                object returned = Mood_Aanalyzer_Factory.CreateMoodAnalyze("ModeAnalyzerAssignment.MoodAnalyzer", "MoodAnalyz");
+            }
+            catch (MoodAnalyzerNullException Exception)
+            {
+                Assert.AreEqual("Constructor not found", Exception.Message);
+            }
+        }
+    
     }
 }
