@@ -200,5 +200,29 @@ namespace TestCaseMoodAnalyzer
             }
         }
 
+          [TestMethod]
+        [DataRow("Happy", "analyseMood1")]
+        [DataRow("Happy", "MoodAnalyze")]
+        [DataRow(null, "analyseMood1")]
+
+       
+        public void When_Given_Proper_DynamicMessageThroughReflection_Should_ReturnHappy_or_Throw_Exception(string Message, string FieldName)
+        {
+
+           
+            try
+            {
+                string mood = Mood_Aanalyzer_Factory.SetField(Message, FieldName);
+                Assert.AreEqual("HAPPY", mood);
+            }
+            catch (MoodAnalyzerNullException Exception)
+            {
+                if (Exception.Message == "Field not Found")
+                    Assert.AreEqual("Field not Found", Exception.Message);
+                else Assert.AreEqual("Mood can not be null.", Exception.Message);
+            }
+        }
+
+        
     }
 }
