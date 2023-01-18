@@ -34,5 +34,22 @@ namespace Mood_Analyzer
                 throw new MoodAnalyzerNullException(MoodAnalyzerNullException.Exception_Type.NO_SUCH_CONSTRUCTOR, "Constructor not found");
             }
         }
+    
+     public static object CreateMoodAnalyze_Parameter_Constructor(string className, string constructorName)  
+        {
+            Type type = typeof(MoodAnalyser);   //namspace.classname
+            if (type.Name.Equals(className) || type.FullName.Equals(className))   //(MoodAnalyser==MoodAnalyser)
+            {
+                if (type.Name.Equals(constructorName))  //(MoodAnalyser==MoodAnar)
+                {
+                    ConstructorInfo constructor = type.GetConstructor(new[] { typeof(string) });
+                    object instance = constructor.Invoke(new object[] { "HAPPY" });
+                    return instance;
+                }
+                else throw new MoodAnalyzerNullException(MoodAnalyzerNullException.Exception_Type.NO_SUCH_CONSTRUCTOR, "Constructor not found");
+            }
+            else throw new MoodAnalyzerNullException(MoodAnalyzerNullException.Exception_Type.NO_SUCH_CLASS, "Class not found");
+        }
+    
     }
 }
