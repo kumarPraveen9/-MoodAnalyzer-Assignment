@@ -17,6 +17,6 @@ namespace TestCaseMoodAnalyzer
             expected.Equals(returned);
         }
       
-        }
+        
     }
 }
